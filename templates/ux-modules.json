@@ -1,0 +1,12 @@
+{
+  "$comment": "Copy into a new project as docs/ux-modules.json when the designer ticks ux-designer. List only the module ids they selected.",
+  "enabled": [
+    "core-principles",
+    "laws-of-ux",
+    "accessibility",
+    "visual-design",
+    "information-architecture",
+    "interaction-design",
+    "forms-and-inputs"
+  ]
+}

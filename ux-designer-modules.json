@@ -1,0 +1,96 @@
+{
+  "$comment": "Subset picker for szilu/ux-designer-skill. Lab can show these as nested ticks under the ux-designer catalogue entry. Copy selected ids into the new project's docs/ux-modules.json.",
+  "wraps": "https://github.com/szilu/ux-designer-skill",
+  "license": "MIT",
+  "packs": [
+    {
+      "id": "foundations",
+      "label": "Foundations",
+      "default": "on",
+      "modules": [
+        { "id": "core-principles", "file": "01-core-principles.md", "line": "Heuristics, Gestalt, basic rules" },
+        { "id": "laws-of-ux", "file": "02-laws-of-ux.md", "line": "Fitts, Hick, Jakob and the rest of the laws" },
+        { "id": "accessibility", "file": "03-accessibility.md", "line": "WCAG 2.2, keyboard, contrast" },
+        { "id": "visual-design", "file": "04-visual-design.md", "line": "Type, colour, space, hierarchy" }
+      ]
+    },
+    {
+      "id": "structure",
+      "label": "Structure",
+      "default": "on",
+      "modules": [
+        { "id": "information-architecture", "file": "05-information-architecture.md", "line": "Nav, sitemaps, grouping" },
+        { "id": "interaction-design", "file": "06-interaction-design.md", "line": "Modals, motion, controls" },
+        { "id": "forms-and-inputs", "file": "07-forms-and-inputs.md", "line": "Forms, validation, input types" }
+      ]
+    },
+    {
+      "id": "platform",
+      "label": "Platform",
+      "default": "off",
+      "modules": [
+        { "id": "mobile-ux", "file": "08-mobile-ux.md", "line": "Touch, gestures, small screens" },
+        { "id": "design-systems", "file": "11-design-systems.md", "line": "Tokens, components, theming" }
+      ]
+    },
+    {
+      "id": "content",
+      "label": "Content and research",
+      "default": "off",
+      "modules": [
+        { "id": "ux-writing", "file": "09-ux-writing.md", "line": "Microcopy and tone" },
+        { "id": "user-research", "file": "10-user-research.md", "line": "Research methods and metrics" }
+      ]
+    },
+    {
+      "id": "collaboration-canvas",
+      "label": "Collaboration and canvas",
+      "default": "off",
+      "modules": [
+        { "id": "presence-awareness", "file": "12a-presence-awareness.md", "line": "Live cursors, avatars" },
+        { "id": "conflict-resolution-sync", "file": "12b-conflict-resolution-sync.md", "line": "Offline, sync, conflict" },
+        { "id": "canvas-navigation", "file": "13a-canvas-navigation.md", "line": "Zoom, pan, canvas nav" },
+        { "id": "canvas-objects-performance", "file": "13b-canvas-objects-performance.md", "line": "Layers, snapping, canvas perf" }
+      ]
+    },
+    {
+      "id": "modern",
+      "label": "Modern product",
+      "default": "off",
+      "modules": [
+        { "id": "ai-ux-patterns", "file": "14-ai-ux-patterns.md", "line": "Chat, copilots, agent UI" },
+        { "id": "ethical-design", "file": "15-ethical-design.md", "line": "Dark patterns, consent" },
+        { "id": "emotional-design", "file": "20-emotional-design.md", "line": "Trust, tone, feeling" }
+      ]
+    },
+    {
+      "id": "flows",
+      "label": "Flows",
+      "default": "off",
+      "modules": [
+        { "id": "onboarding", "file": "16-onboarding.md", "line": "First run, empty states" },
+        { "id": "notifications", "file": "17-notifications.md", "line": "Toasts, push, severity" },
+        { "id": "search-ux", "file": "19-search-ux.md", "line": "Search, filters, autocomplete" }
+      ]
+    },
+    {
+      "id": "data",
+      "label": "Data",
+      "default": "off",
+      "modules": [
+        { "id": "data-visualization", "file": "18-data-visualization.md", "line": "Charts and dashboards" },
+        { "id": "data-tables", "file": "21-data-tables.md", "line": "Tables, sort, pagination" },
+        { "id": "performance-ux", "file": "22-performance-ux.md", "line": "Loading, skeletons, slowness" }
+      ]
+    },
+    {
+      "id": "global",
+      "label": "Global and input",
+      "default": "off",
+      "modules": [
+        { "id": "internationalization", "file": "23-internationalization.md", "line": "i18n, RTL, string growth" },
+        { "id": "voice-and-multimodal", "file": "24-voice-and-multimodal.md", "line": "Voice and mixed input" }
+      ]
+    }
+  ]
+}

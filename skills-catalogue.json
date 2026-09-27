@@ -1,0 +1,196 @@
+{
+  "$comment": "Drives the Skills picker in the New Project flow. 'default' is whether the entry is enabled for a new project. Extra keys (kind, agents, modulesFile, copiesFrom) are ignored by today's Lab picker and are for the next wiring pass.",
+  "version": 2,
+  "entries": [
+    {
+      "name": "uxfold-core",
+      "description": "House rules — tokens first, reuse components, keep preview compiling. Copied into the project.",
+      "repo": "local:skills/uxfold-core",
+      "install": "copy skills/uxfold-core to .agents/skills/uxfold-core and .claude/skills/uxfold-core",
+      "default": "on",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-principles",
+      "description": "Aesthetic-usability, Pareto, heuristics, Parkinson, pattern catalogues, desirability / feasibility / scale.",
+      "repo": "local:skills/uxfold-principles",
+      "install": "copy skills/uxfold-principles to .agents/skills/uxfold-principles and .claude/skills/uxfold-principles",
+      "default": "on",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-handoff",
+      "description": "Write a developer handoff note from the live prototype.",
+      "repo": "local:skills/uxfold-handoff",
+      "install": "copy skills/uxfold-handoff to .agents/skills/uxfold-handoff and .claude/skills/uxfold-handoff",
+      "default": "on",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-ia",
+      "description": "Build a sitemap as docs/ia.md (Mermaid) and docs/ia.drawio.",
+      "repo": "local:skills/uxfold-ia",
+      "install": "copy skills/uxfold-ia to .agents/skills/uxfold-ia and .claude/skills/uxfold-ia",
+      "default": "off",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-funnel",
+      "description": "Label screens TOFU / MOFU / BOFU (or acquire / activate / habit) and write docs/funnel.md.",
+      "repo": "local:skills/uxfold-funnel",
+      "install": "copy skills/uxfold-funnel to .agents/skills/uxfold-funnel and .claude/skills/uxfold-funnel",
+      "default": "off",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-moscow",
+      "description": "Scope the slice with Must / Should / Could / Will-not.",
+      "repo": "local:skills/uxfold-moscow",
+      "install": "copy skills/uxfold-moscow to .agents/skills/uxfold-moscow and .claude/skills/uxfold-moscow",
+      "default": "off",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-figma-push",
+      "description": "Push screens to Figma as frames, new local components, existing local components, or a published library.",
+      "repo": "local:skills/uxfold-figma-push",
+      "install": "copy skills/uxfold-figma-push to .agents/skills/uxfold-figma-push and .claude/skills/uxfold-figma-push",
+      "default": "off",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "uxfold-ux-modules",
+      "description": "Router for the ux-designer modules the designer ticked. Needs ux-designer installed.",
+      "repo": "local:skills/uxfold-ux-modules",
+      "install": "copy skills/uxfold-ux-modules to .agents/skills/uxfold-ux-modules and .claude/skills/uxfold-ux-modules",
+      "default": "off",
+      "kind": "bundled",
+      "agents": ["any"]
+    },
+    {
+      "name": "superpowers",
+      "description": "Working method — brainstorm, plan, test-first, verify before saying done.",
+      "repo": "https://github.com/obra/superpowers",
+      "install": "/plugin install superpowers@claude-plugins-official",
+      "default": "on",
+      "kind": "plugin",
+      "agents": ["claude-code"]
+    },
+    {
+      "name": "claude-mem",
+      "description": "Remembers past sessions so the agent stops re-learning the project. Claude Code plugin.",
+      "repo": "https://github.com/thedotmack/claude-mem",
+      "install": "/plugin marketplace add thedotmack/claude-mem && /plugin install claude-mem@thedotmack",
+      "default": "on",
+      "kind": "plugin",
+      "agents": ["claude-code"]
+    },
+    {
+      "name": "frontend-design",
+      "description": "Anthropic anti-slop frontend skill. Show as a tick when creating a project — not forced on.",
+      "repo": "https://github.com/anthropics/skills",
+      "install": "npx skills add anthropics/skills --skill frontend-design",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "design-taste-frontend",
+      "description": "Stops generic AI UI. Variance, motion, and density dials.",
+      "repo": "https://github.com/Leonxlnx/taste-skill",
+      "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill design-taste-frontend",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "web-design-guidelines",
+      "description": "Audit UI against Vercel web interface guidelines (a11y, forms, motion, type).",
+      "repo": "https://github.com/vercel-labs/agent-skills",
+      "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "writing-guidelines",
+      "description": "Audit docs and prose against Vercel writing guidelines.",
+      "repo": "https://github.com/vercel-labs/agent-skills",
+      "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill writing-guidelines",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "ux-writing",
+      "description": "UX microcopy — buttons, errors, empty states, tone.",
+      "repo": "https://github.com/content-designer/ux-writing-skill",
+      "install": "npx skills add content-designer/ux-writing-skill",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "ux-designer",
+      "description": "Broad UX skill with topic modules. After ticking this, pick modules from ux-designer-modules.json.",
+      "repo": "https://github.com/szilu/ux-designer-skill",
+      "install": "npx skills add szilu/ux-designer-skill",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"],
+      "modulesFile": "ux-designer-modules.json"
+    },
+    {
+      "name": "ponytail",
+      "description": "Do less. Reuse what exists, native controls before new libraries.",
+      "repo": "https://github.com/DietrichGebert/ponytail",
+      "install": "npx skills add DietrichGebert/ponytail",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "image-to-code",
+      "description": "Turn a screenshot or reference image into matching frontend code.",
+      "repo": "https://github.com/Leonxlnx/taste-skill",
+      "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill image-to-code",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "playwright-cli",
+      "description": "Browser QA for agents — snapshot, screenshot, click the live preview.",
+      "repo": "https://github.com/microsoft/playwright-cli",
+      "install": "npm i -g @playwright/cli@latest && playwright-cli install --skills",
+      "default": "off",
+      "kind": "cli-skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "obsidian-skills",
+      "description": "Obsidian markdown, Bases, JSON Canvas, Obsidian CLI — useful if specs live in a vault.",
+      "repo": "https://github.com/kepano/obsidian-skills",
+      "install": "git clone https://github.com/kepano/obsidian-skills && cp -R obsidian-skills/skills/* .claude/skills/",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["claude-code"]
+    },
+    {
+      "name": "claude-code-plugins",
+      "description": "Anthropic first-party plugin marketplace. Claude Code only.",
+      "repo": "https://github.com/anthropics/claude-code",
+      "install": "/plugin marketplace add anthropics/claude-code",
+      "default": "off",
+      "kind": "plugin",
+      "agents": ["claude-code"]
+    }
+  ]
+}
