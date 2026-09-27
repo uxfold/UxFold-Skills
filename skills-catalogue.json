@@ -175,6 +175,42 @@
       "agents": ["any"]
     },
     {
+      "name": "kkd-design-flow",
+      "description": "Compact design process: grill the brief, IA, tokens, tasks, then review. Best Lab fit from the KKD forks.",
+      "repo": "https://github.com/uxfold/designer-skills-KKD",
+      "install": "npx skills add uxfold/designer-skills-KKD",
+      "default": "off",
+      "kind": "skill",
+      "agents": ["any"]
+    },
+    {
+      "name": "kkd-visual-critique",
+      "description": "Prioritised fix list from a screen — hierarchy, type, colour, density. From KKD-designer-skills.",
+      "repo": "https://github.com/uxfold/KKD-designer-skills",
+      "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install visual-critique@designer-skills",
+      "default": "off",
+      "kind": "plugin",
+      "agents": ["claude-code"]
+    },
+    {
+      "name": "kkd-inclusive-design",
+      "description": "Inclusive design before code — cognitive load, adaptive UI, accessible content. Whole pack, pick plugins after install.",
+      "repo": "https://github.com/uxfold/KKD-inclusive-design-skills",
+      "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills",
+      "default": "off",
+      "kind": "plugin",
+      "agents": ["claude-code"]
+    },
+    {
+      "name": "kkd-designer-practice",
+      "description": "Full design-practice suite (research, UI, interaction, systems, ops). Large. Tick only if you want the library, then install the plugins you need.",
+      "repo": "https://github.com/uxfold/KKD-designer-skills",
+      "install": "/plugin marketplace add uxfold/KKD-designer-skills",
+      "default": "off",
+      "kind": "plugin",
+      "agents": ["claude-code"]
+    },
+    {
       "name": "obsidian-skills",
       "description": "Obsidian markdown, Bases, JSON Canvas, Obsidian CLI — useful if specs live in a vault.",
       "repo": "https://github.com/kepano/obsidian-skills",
