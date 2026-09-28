@@ -1,232 +1,54 @@
 {
-  "$comment": "Drives the Skills picker in the New Project flow. 'default' is whether the entry is enabled for a new project. Extra keys (kind, agents, modulesFile, copiesFrom) are ignored by today's Lab picker and are for the next wiring pass.",
-  "version": 2,
+  "$comment": "New Project picker. KKD packs, plugins, and flow skills are searchable and default off. Merge kkd-leaf-inclusive.json and kkd-leaf-practice.json for every individual sub-skill.",
+  "version": 3,
+  "alsoLoad": ["kkd-leaf-inclusive.json", "kkd-leaf-practice.json"],
   "entries": [
-    {
-      "name": "uxfold-core",
-      "description": "House rules — tokens first, reuse components, keep preview compiling. Copied into the project.",
-      "repo": "local:skills/uxfold-core",
-      "install": "copy skills/uxfold-core to .agents/skills/uxfold-core and .claude/skills/uxfold-core",
-      "default": "on",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-principles",
-      "description": "Aesthetic-usability, Pareto, heuristics, Parkinson, pattern catalogues, desirability / feasibility / scale.",
-      "repo": "local:skills/uxfold-principles",
-      "install": "copy skills/uxfold-principles to .agents/skills/uxfold-principles and .claude/skills/uxfold-principles",
-      "default": "on",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-handoff",
-      "description": "Write a developer handoff note from the live prototype.",
-      "repo": "local:skills/uxfold-handoff",
-      "install": "copy skills/uxfold-handoff to .agents/skills/uxfold-handoff and .claude/skills/uxfold-handoff",
-      "default": "on",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-ia",
-      "description": "Build a sitemap as docs/ia.md (Mermaid) and docs/ia.drawio.",
-      "repo": "local:skills/uxfold-ia",
-      "install": "copy skills/uxfold-ia to .agents/skills/uxfold-ia and .claude/skills/uxfold-ia",
-      "default": "off",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-funnel",
-      "description": "Label screens TOFU / MOFU / BOFU (or acquire / activate / habit) and write docs/funnel.md.",
-      "repo": "local:skills/uxfold-funnel",
-      "install": "copy skills/uxfold-funnel to .agents/skills/uxfold-funnel and .claude/skills/uxfold-funnel",
-      "default": "off",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-moscow",
-      "description": "Scope the slice with Must / Should / Could / Will-not.",
-      "repo": "local:skills/uxfold-moscow",
-      "install": "copy skills/uxfold-moscow to .agents/skills/uxfold-moscow and .claude/skills/uxfold-moscow",
-      "default": "off",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-figma-push",
-      "description": "Push screens to Figma as frames, new local components, existing local components, or a published library.",
-      "repo": "local:skills/uxfold-figma-push",
-      "install": "copy skills/uxfold-figma-push to .agents/skills/uxfold-figma-push and .claude/skills/uxfold-figma-push",
-      "default": "off",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "uxfold-ux-modules",
-      "description": "Router for the ux-designer modules the designer ticked. Needs ux-designer installed.",
-      "repo": "local:skills/uxfold-ux-modules",
-      "install": "copy skills/uxfold-ux-modules to .agents/skills/uxfold-ux-modules and .claude/skills/uxfold-ux-modules",
-      "default": "off",
-      "kind": "bundled",
-      "agents": ["any"]
-    },
-    {
-      "name": "superpowers",
-      "description": "Working method — brainstorm, plan, test-first, verify before saying done.",
-      "repo": "https://github.com/obra/superpowers",
-      "install": "/plugin install superpowers@claude-plugins-official",
-      "default": "on",
-      "kind": "plugin",
-      "agents": ["claude-code"]
-    },
-    {
-      "name": "claude-mem",
-      "description": "Remembers past sessions so the agent stops re-learning the project. Claude Code plugin.",
-      "repo": "https://github.com/thedotmack/claude-mem",
-      "install": "/plugin marketplace add thedotmack/claude-mem && /plugin install claude-mem@thedotmack",
-      "default": "on",
-      "kind": "plugin",
-      "agents": ["claude-code"]
-    },
-    {
-      "name": "frontend-design",
-      "description": "Anthropic anti-slop frontend skill. Show as a tick when creating a project — not forced on.",
-      "repo": "https://github.com/anthropics/skills",
-      "install": "npx skills add anthropics/skills --skill frontend-design",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "design-taste-frontend",
-      "description": "Stops generic AI UI. Variance, motion, and density dials.",
-      "repo": "https://github.com/Leonxlnx/taste-skill",
-      "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill design-taste-frontend",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "web-design-guidelines",
-      "description": "Audit UI against Vercel web interface guidelines (a11y, forms, motion, type).",
-      "repo": "https://github.com/vercel-labs/agent-skills",
-      "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "writing-guidelines",
-      "description": "Audit docs and prose against Vercel writing guidelines.",
-      "repo": "https://github.com/vercel-labs/agent-skills",
-      "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill writing-guidelines",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "ux-writing",
-      "description": "UX microcopy — buttons, errors, empty states, tone.",
-      "repo": "https://github.com/content-designer/ux-writing-skill",
-      "install": "npx skills add content-designer/ux-writing-skill",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "ux-designer",
-      "description": "Broad UX skill with topic modules. After ticking this, pick modules from ux-designer-modules.json.",
-      "repo": "https://github.com/szilu/ux-designer-skill",
-      "install": "npx skills add szilu/ux-designer-skill",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"],
-      "modulesFile": "ux-designer-modules.json"
-    },
-    {
-      "name": "ponytail",
-      "description": "Do less. Reuse what exists, native controls before new libraries.",
-      "repo": "https://github.com/DietrichGebert/ponytail",
-      "install": "npx skills add DietrichGebert/ponytail",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "image-to-code",
-      "description": "Turn a screenshot or reference image into matching frontend code.",
-      "repo": "https://github.com/Leonxlnx/taste-skill",
-      "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill image-to-code",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "playwright-cli",
-      "description": "Browser QA for agents — snapshot, screenshot, click the live preview.",
-      "repo": "https://github.com/microsoft/playwright-cli",
-      "install": "npm i -g @playwright/cli@latest && playwright-cli install --skills",
-      "default": "off",
-      "kind": "cli-skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "kkd-design-flow",
-      "description": "Compact design process: grill the brief, IA, tokens, tasks, then review. Best Lab fit from the KKD forks.",
-      "repo": "https://github.com/uxfold/designer-skills-KKD",
-      "install": "npx skills add uxfold/designer-skills-KKD",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["any"]
-    },
-    {
-      "name": "kkd-visual-critique",
-      "description": "Prioritised fix list from a screen — hierarchy, type, colour, density. From KKD-designer-skills.",
-      "repo": "https://github.com/uxfold/KKD-designer-skills",
-      "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install visual-critique@designer-skills",
-      "default": "off",
-      "kind": "plugin",
-      "agents": ["claude-code"]
-    },
-    {
-      "name": "kkd-inclusive-design",
-      "description": "Inclusive design before code — cognitive load, adaptive UI, accessible content. Whole pack, pick plugins after install.",
-      "repo": "https://github.com/uxfold/KKD-inclusive-design-skills",
-      "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills",
-      "default": "off",
-      "kind": "plugin",
-      "agents": ["claude-code"]
-    },
-    {
-      "name": "kkd-designer-practice",
-      "description": "Full design-practice suite (research, UI, interaction, systems, ops). Large. Tick only if you want the library, then install the plugins you need.",
-      "repo": "https://github.com/uxfold/KKD-designer-skills",
-      "install": "/plugin marketplace add uxfold/KKD-designer-skills",
-      "default": "off",
-      "kind": "plugin",
-      "agents": ["claude-code"]
-    },
-    {
-      "name": "obsidian-skills",
-      "description": "Obsidian markdown, Bases, JSON Canvas, Obsidian CLI — useful if specs live in a vault.",
-      "repo": "https://github.com/kepano/obsidian-skills",
-      "install": "git clone https://github.com/kepano/obsidian-skills && cp -R obsidian-skills/skills/* .claude/skills/",
-      "default": "off",
-      "kind": "skill",
-      "agents": ["claude-code"]
-    },
-    {
-      "name": "claude-code-plugins",
-      "description": "Anthropic first-party plugin marketplace. Claude Code only.",
-      "repo": "https://github.com/anthropics/claude-code",
-      "install": "/plugin marketplace add anthropics/claude-code",
-      "default": "off",
-      "kind": "plugin",
-      "agents": ["claude-code"]
-    }
+    {"name": "uxfold-core", "description": "House rules — tokens first, reuse components, keep preview compiling. Copied into the project.", "repo": "local:skills/uxfold-core", "install": "copy skills/uxfold-core to .agents/skills/uxfold-core and .claude/skills/uxfold-core", "default": "on", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-principles", "description": "Aesthetic-usability, Pareto, heuristics, Parkinson, pattern catalogues, desirability / feasibility / scale.", "repo": "local:skills/uxfold-principles", "install": "copy skills/uxfold-principles to .agents/skills/uxfold-principles and .claude/skills/uxfold-principles", "default": "on", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-handoff", "description": "Write a developer handoff note from the live prototype.", "repo": "local:skills/uxfold-handoff", "install": "copy skills/uxfold-handoff to .agents/skills/uxfold-handoff and .claude/skills/uxfold-handoff", "default": "on", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-ia", "description": "Build a sitemap as docs/ia.md (Mermaid) and docs/ia.drawio.", "repo": "local:skills/uxfold-ia", "install": "copy skills/uxfold-ia to .agents/skills/uxfold-ia and .claude/skills/uxfold-ia", "default": "off", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-funnel", "description": "Label screens TOFU / MOFU / BOFU (or acquire / activate / habit) and write docs/funnel.md.", "repo": "local:skills/uxfold-funnel", "install": "copy skills/uxfold-funnel to .agents/skills/uxfold-funnel and .claude/skills/uxfold-funnel", "default": "off", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-moscow", "description": "Scope the slice with Must / Should / Could / Will-not.", "repo": "local:skills/uxfold-moscow", "install": "copy skills/uxfold-moscow to .agents/skills/uxfold-moscow and .claude/skills/uxfold-moscow", "default": "off", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-figma-push", "description": "Push screens to Figma as frames, new local components, existing local components, or a published library.", "repo": "local:skills/uxfold-figma-push", "install": "copy skills/uxfold-figma-push to .agents/skills/uxfold-figma-push and .claude/skills/uxfold-figma-push", "default": "off", "kind": "bundled", "agents": ["any"]},
+    {"name": "uxfold-ux-modules", "description": "Router for the ux-designer modules the designer ticked. Needs ux-designer installed.", "repo": "local:skills/uxfold-ux-modules", "install": "copy skills/uxfold-ux-modules to .agents/skills/uxfold-ux-modules and .claude/skills/uxfold-ux-modules", "default": "off", "kind": "bundled", "agents": ["any"]},
+    {"name": "superpowers", "description": "Working method — brainstorm, plan, test-first, verify before saying done.", "repo": "https://github.com/obra/superpowers", "install": "/plugin install superpowers@claude-plugins-official", "default": "on", "kind": "plugin", "agents": ["claude-code"]},
+    {"name": "claude-mem", "description": "Remembers past sessions so the agent stops re-learning the project. Claude Code plugin.", "repo": "https://github.com/thedotmack/claude-mem", "install": "/plugin marketplace add thedotmack/claude-mem && /plugin install claude-mem@thedotmack", "default": "on", "kind": "plugin", "agents": ["claude-code"]},
+    {"name": "frontend-design", "description": "Anthropic anti-slop frontend skill. Show as a tick when creating a project — not forced on.", "repo": "https://github.com/anthropics/skills", "install": "npx skills add anthropics/skills --skill frontend-design", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "design-taste-frontend", "description": "Stops generic AI UI. Variance, motion, and density dials.", "repo": "https://github.com/Leonxlnx/taste-skill", "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill design-taste-frontend", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "web-design-guidelines", "description": "Audit UI against Vercel web interface guidelines (a11y, forms, motion, type).", "repo": "https://github.com/vercel-labs/agent-skills", "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill web-design-guidelines", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "writing-guidelines", "description": "Audit docs and prose against Vercel writing guidelines.", "repo": "https://github.com/vercel-labs/agent-skills", "install": "npx skills add https://github.com/vercel-labs/agent-skills --skill writing-guidelines", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "ux-writing", "description": "UX microcopy — buttons, errors, empty states, tone.", "repo": "https://github.com/content-designer/ux-writing-skill", "install": "npx skills add content-designer/ux-writing-skill", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "ux-designer", "description": "Broad UX skill with topic modules. After ticking this, pick modules from ux-designer-modules.json.", "repo": "https://github.com/szilu/ux-designer-skill", "install": "npx skills add szilu/ux-designer-skill", "default": "off", "kind": "skill", "agents": ["any"], "modulesFile": "ux-designer-modules.json"},
+    {"name": "ponytail", "description": "Do less. Reuse what exists, native controls before new libraries.", "repo": "https://github.com/DietrichGebert/ponytail", "install": "npx skills add DietrichGebert/ponytail", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "image-to-code", "description": "Turn a screenshot or reference image into matching frontend code.", "repo": "https://github.com/Leonxlnx/taste-skill", "install": "npx skills add https://github.com/Leonxlnx/taste-skill --skill image-to-code", "default": "off", "kind": "skill", "agents": ["any"]},
+    {"name": "playwright-cli", "description": "Browser QA for agents — snapshot, screenshot, click the live preview.", "repo": "https://github.com/microsoft/playwright-cli", "install": "npm i -g @playwright/cli@latest && playwright-cli install --skills", "default": "off", "kind": "cli-skill", "agents": ["any"]},
+    {"name": "kkd-design-flow-pack", "description": "KKD compact design process pack (8 skills). Search kkd-flow-* to pick individuals.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true},
+    {"name": "kkd-inclusive-design-pack", "description": "KKD inclusive design pack (6 plugins). Search kkd-inc-* to pick individuals.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true},
+    {"name": "kkd-designer-practice-pack", "description": "KKD design-practice pack (9 plugins). Search kkd-prac-* to pick individuals.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true},
+    {"name": "kkd-flow-grill-me", "description": "Interrogate the plan until design decisions are resolved.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill grill-me", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-design-brief", "description": "Turn the grilling session into a structured brief.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill design-brief", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-information-architecture", "description": "Navigation, hierarchy, page structure, and flows.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill information-architecture", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-design-tokens", "description": "Colour, type, space, and motion tokens with light and dark.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill design-tokens", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-brief-to-tasks", "description": "Break the brief into independently buildable slices.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill brief-to-tasks", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-frontend-design", "description": "Build with a named aesthetic. Not the Anthropic frontend-design skill.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill frontend-design", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-design-review", "description": "Critique the built work against the brief.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill design-review", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-flow-design-flow", "description": "Run the full KKD design sequence, skip phases you do not need.", "repo": "https://github.com/uxfold/designer-skills-KKD", "install": "npx skills add uxfold/designer-skills-KKD --skill design-flow", "default": "off", "kind": "skill", "agents": ["any"], "group": "kkd-flow", "searchable": true, "optional": true, "parent": "kkd-design-flow-pack"},
+    {"name": "kkd-inc-cognitive-accessibility", "description": "Design for how people think: load, language, wayfinding, memory, errors.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills && /plugin install cognitive-accessibility@inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true, "parent": "kkd-inclusive-design-pack"},
+    {"name": "kkd-inc-inclusive-interaction", "description": "Multi-modal input and output, keyboard, gestures, status.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills && /plugin install inclusive-interaction@inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true, "parent": "kkd-inclusive-design-pack"},
+    {"name": "kkd-inc-accessible-content", "description": "Alt text, headings, links, forms, tables, readable content.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills && /plugin install accessible-content@inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true, "parent": "kkd-inclusive-design-pack"},
+    {"name": "kkd-inc-inclusive-personas", "description": "Personas and scenarios that include disability from the start.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills && /plugin install inclusive-personas@inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true, "parent": "kkd-inclusive-design-pack"},
+    {"name": "kkd-inc-adaptive-interfaces", "description": "Respect motion, contrast, type, and density preferences.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills && /plugin install adaptive-interfaces@inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true, "parent": "kkd-inclusive-design-pack"},
+    {"name": "kkd-inc-accessibility-decisions", "description": "Document a11y tradeoffs, debt, compliance, handoff.", "repo": "https://github.com/uxfold/KKD-inclusive-design-skills", "install": "/plugin marketplace add uxfold/KKD-inclusive-design-skills && /plugin install accessibility-decisions@inclusive-design-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-inclusive", "searchable": true, "optional": true, "parent": "kkd-inclusive-design-pack"},
+    {"name": "kkd-prac-design-research", "description": "Personas, journeys, interviews, synthesis, test plans.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install design-research@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-ux-strategy", "description": "Brief, principles, IA, competitive, opportunity, blueprint.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install ux-strategy@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-ui-design", "description": "Colour, type, grid, dark mode, gestalt, hierarchy.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install ui-design@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-interaction-design", "description": "Forms, onboarding, errors, states, motion, search.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install interaction-design@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-design-systems", "description": "Tokens, components, theming, a11y audit, governance.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install design-systems@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-prototyping-testing", "description": "Heuristics, prototype plan, A/B, wireframes, flows.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install prototyping-testing@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-design-ops", "description": "Critique, handoff spec, sprint, debt, QA checklist.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install design-ops@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-designer-toolkit", "description": "Rationale, case study, UX writing, negotiation.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install designer-toolkit@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "kkd-prac-visual-critique", "description": "Hierarchy, type, colour, density, affordance, brand.", "repo": "https://github.com/uxfold/KKD-designer-skills", "install": "/plugin marketplace add uxfold/KKD-designer-skills && /plugin install visual-critique@designer-skills", "default": "off", "kind": "plugin", "agents": ["claude-code"], "group": "kkd-practice", "searchable": true, "optional": true, "parent": "kkd-designer-practice-pack"},
+    {"name": "obsidian-skills", "description": "Obsidian markdown, Bases, JSON Canvas, Obsidian CLI — useful if specs live in a vault.", "repo": "https://github.com/kepano/obsidian-skills", "install": "git clone https://github.com/kepano/obsidian-skills && cp -R obsidian-skills/skills/* .claude/skills/", "default": "off", "kind": "skill", "agents": ["claude-code"]},
+    {"name": "claude-code-plugins", "description": "Anthropic first-party plugin marketplace. Claude Code only.", "repo": "https://github.com/anthropics/claude-code", "install": "/plugin marketplace add anthropics/claude-code", "default": "off", "kind": "plugin", "agents": ["claude-code"]}
   ]
 }
