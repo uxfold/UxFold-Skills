@@ -12,6 +12,7 @@
            one AGENTS.md  ·  any agent
 ```
 
+
 # UxFold Skills
 
 The instruction pack a new [UxFold Lab](https://github.com/uxfold/UxFold-Lab) project starts with.
@@ -66,12 +67,25 @@ Two kinds of knowledge live in different places on purpose:
 - Superpowers (Claude Code plugin)
 - claude-mem (Claude Code plugin)
 
-**Off until you tick them** — still in the list, not forced:
+**Off until you tick them** — still in the default list, not forced:
 
 - House: IA, funnel, MoSCoW, Figma push, ux-modules
 - Community: Anthropic frontend-design, Taste, Vercel guidelines, UX writing, ux-designer, ponytail, image-to-code, Playwright CLI, Obsidian
 
-House skills are copied from this repo. Community skills stay on GitHub; Lab only runs their install command if you ticked them.
+**KKD packs and every KKD sub-skill — search only, never on by default**
+
+The three KKD repos and everything inside them are optional add-only. They do not sit in the default tick list. You search. Matches show up as options. You pick what you want.
+
+| Search for | What appears |
+| --- | --- |
+| `kkd` | All three packs |
+| `kkd-flow` or `grill` / `brief` / `tokens` | Compact 8-skill design flow, or one skill from it |
+| `kkd-inc` or `inclusive` / `a11y` | Inclusive pack, its 6 plugins, or one leaf under a plugin |
+| `kkd-prac` or `critique` / `research` | Practice pack, its 9 plugins, or one leaf under a plugin |
+
+Ticking a pack installs that pack. Ticking one plugin or one leaf installs only that piece. Nothing else comes along.
+
+House skills are copied from this repo. Community and KKD skills stay on GitHub; Lab only runs their install command if you ticked them.
 
 ---
 
@@ -289,6 +303,9 @@ These are other people’s work. Lab installs them when ticked. We do not copy t
 | `ponytail` | Do less | Native date input before a date-picker library. Pairs with core and Parkinson. |
 | `image-to-code` | Screenshot to code | When you drop a Mobbin or Figma export and want a matching screen. |
 | `playwright-cli` | Browser QA for agents | Snapshots after an edit. Handoff uses it if present. |
+| `kkd-design-flow-pack` | Compact process: grill → brief → IA → tokens → tasks → review | Search-only. Eight skills. Tick the pack or one `kkd-flow-*` skill. |
+| `kkd-inclusive-design-pack` | Inclusive design before code | Search-only. Six plugins, plus leaf skills under each. Tick what you need. |
+| `kkd-designer-practice-pack` | Design-practice marketplace | Search-only. Nine plugins, plus leaf skills under each. Do not dump the whole library on a new project. |
 | `superpowers` | Method: plan, test, verify | Claude Code plugin. Default on for that agent. |
 | `claude-mem` | Remember past sessions | Claude Code plugin. Default on for that agent. Other agents skip it. |
 | `obsidian-skills` | Specs in an Obsidian vault | Off. Only if that is how you keep notes. |
@@ -330,6 +347,7 @@ Full copy map: `HOW-TO-USE.md`.
 3. Copy each ticked `skills/uxfold-*` folder into `.agents/skills` and `.claude/skills`.
 4. Run the catalogue install line only for community skills that were ticked.
 5. If `ux-designer` was ticked, write `docs/ux-modules.json` from the module picker.
+6. KKD rows are search-only. Load leaf JSON into the search index, not the default tick list. Install only what the designer ticked.
 
 That wiring lives in UxFold Lab, not in this repo.
 
