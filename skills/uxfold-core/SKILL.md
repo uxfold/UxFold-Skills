@@ -4,7 +4,7 @@ description: House rules for any UxFold Lab project. Use when starting work, sca
 license: MIT
 metadata:
   origin: uxfold
-  version: "1.0"
+  version: "1.1"
 ---
 
 # UxFold core
@@ -19,6 +19,7 @@ Read `AGENTS.md` first. This skill is the short procedure on top.
 
 ## While you edit
 
+- Never add, edit, copy or remove `data-uxf-id` attributes. UxFold Lab manages them. Leave them exactly where they are when you change markup, and never strip them with a search-and-replace or `sed`.
 - Keep the change small. One intent per edit.
 - Do not introduce a second visual language (new radius scale, new typeface, new primary colour) unless the user asked to restyle the system.
 - If you add UI, add the states that UI needs — empty, loading, error, disabled — or write why they are out of scope in `docs/handoff.md`.

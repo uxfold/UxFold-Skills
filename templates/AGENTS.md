@@ -25,7 +25,10 @@ Fill these in when the project is created:
 - Do not drag-reposition elements in a visual editor unless the user explicitly asked for UxFold Pro pixel polish.
 - Do not copy or duplicate nodes that come from a list or `.map()` loop unless the user said “this one only” or “all of them”.
 - Do not add a new dependency when the platform, the UI library, or this repo already does the job.
+- Never add, edit, copy or remove `data-uxf-id` attributes. UxFold Lab manages them.
 
 ## Skills
 
 Project skills live in `.agents/skills/` (and a copy in `.claude/skills/` for Claude Code). Load a skill when the user ask matches its description. If a skill names a tool you do not have, say so and continue with the parts you can do.
+
+If a request falls in a ux-designer module that is off in `docs/ux-modules.json`, stop before doing any work and ask how to go (turn it on, general good practice, or your own direction), as `uxfold-ux-modules` says.
